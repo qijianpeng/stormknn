@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <element name="version" type="java.lang.String">0.1</element>
+    <element name="author.mail"  type="java.lang.String">jianpengqi_at_126_dot_com</element>
+<!-- CAUTION: the data should be sorted by timestamp with ascending order strictly.-->
+    <!--<element name="data.dimensions" type="java.lang.Integer">2</element>
+        <element name="data.minX" type="java.lang.Double">0.0</element>
+        <element name="data.maxX" type="java.lang.Double">1500.0</element>
+        <element name="data.minY" type="java.lang.Double">0.0</element>
+        <element name="data.maxY" type="java.lang.Double">900.0</element>
+        <element name="data.minZ" type="java.lang.Double">0.0</element>
+        <element name="data.maxZ" type="java.lang.Double">0.0</element>-->
+    <element name="data.dimensions" type="java.lang.Integer">2</element>
+    <element name="data.minX" type="java.lang.Double">116.3390</element>
+    <element name="data.maxX" type="java.lang.Double">116.4431</element>
+    <element name="data.minY" type="java.lang.Double">39.8920</element>
+    <element name="data.maxY" type="java.lang.Double">39.9551</element>
+    <element name="data.minZ" type="java.lang.Double">0.0</element>
+    <element name="data.maxZ" type="java.lang.Double">0.0</element>
+    <element name="data.separator" type="java.lang.String">\t</element>
+    <element name="data.endtime" type="java.lang.Long">40</element>
+<!-- It determines the ways of reading a slide data. Ref.
+      storm.hdfs.spout.TextFileReader#readSameFieldsAndTrackOffect(); -->
+    <element name="data.timefields.index" type="java.lang.Integer">1</element>
+<!--Grid index tree searching optimized.-->
+    <!--Whether use gate or not. If use it will integrates with RouterTable-->
+    <element name="index.height" type="java.lang.Integer">4</element>
+    <element name="index.boundary.length.scale" type="java.lang.Double">0.1</element>
+    <element name="index.branch.factor" type="java.lang.Integer">40</element>
+
+
+<!--KNN settings-->
+    <element name="K" type="java.lang.Integer">20</element>
+
+    <element name="index.node.gate" type="java.lang.Boolean">false</element>
+    <!-- Whether tree node integrates with routerIndex -->
+    <element name="index.node.router" type="java.lang.Boolean">false</element>
+<!-- Router settings -->
+    <element name="router.balance" type="java.lang.Boolean">false</element>
+    <element name="router.imbalanceDegree" type="java.lang.Double">1.2</element>
+    <element name="router.imbalanceDegree.lower" type="java.lang.Double">0.8</element>
+<!--Topology settings-->
+    <element name="topology.knnBolt.num" type="java.lang.Integer">3</element>
+
+
+
+
+
+
+
+
+
+
+    <!-- 在超载节点上允许可以迁移的最大Node数量, 该值约大, 当前节点迁移的node数量越多. 该值
+    越小, 则可能引起较大node节点的分裂.-->
+    <element name="router.nodes.combinations.max" type="java.lang.Integer">2</element>
+
+
+
+
+
+
+
+
+
+
+<!-- About data streams. -->
+    <element name="stream.window" type="java.lang.Integer">10</element>
+    <element name="stream.slide.interval" type="java.lang.Integer">1</element>
+<!--Apache Storm settings-->
+<!-- Outlier detection parameters.-->
+    <element name="radius" type="java.lang.Double">15</element>
+    <!-- grid cell side length(# radius) -->
+    <element name="index.grid.cell.length" type="java.lang.Integer">20</element>
+
+<!-- Topology info.-->
+    <!--Layer 2, 用于处理一个窗口期内的数据-->
+    <element name="bolt.outlier.rough.num" type="java.lang.Integer">5</element>
+    <!--Layer 3A, 用于收集不完整node的数据, 完成窗口计算-->
+    <element name="bolt.outlier.cell.window.aggregate.num" type="java.lang.Integer">1</element>
+    <!--Layer 3B1, 用于完成边界点的第1层计算-->
+    <element name="bolt.outlier.boundary.num" type="java.lang.Integer">1</element>
+<!--HDFS settings-->
+    <element name="hdfs.uri" type="java.lang.String">hdfs://centos1:9000</element>
+   <!-- <element name="hdfs.uri" type="java.lang.String">hdfs://localhost:9000</element>-->
+    <element name="hdfs.archiveDir" type="java.lang.String">/storm/done/</element>
+    <element name="hdfs.sourceDir" type="java.lang.String">/storm/data/</element>
+    <element name="hdfs.badFilesDir" type="java.lang.String">/storm/badfiles/</element>
+</root>
